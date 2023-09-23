@@ -12,6 +12,11 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "test"
 include(":app")
+include(":domain")
+include(":data")
+include(":ui:assets")
+include(":ui:localization")
+include(":ui:system")
