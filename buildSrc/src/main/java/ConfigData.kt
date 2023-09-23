@@ -10,4 +10,7 @@ object ConfigData {
     val sourceCompatibility = JavaVersion.VERSION_17
     val targetCompatibility = JavaVersion.VERSION_17
     const val jvmTarget = "17"
+
+    const val proguardAndroid = "proguard-android-optimize.txt"
+    const val proguardRules = "proguard-rules.pro"
 }

@@ -1,6 +1,8 @@
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
+    id(BuildPlugins.androidLibrary)
+    id(BuildPlugins.kotlinAndroid)
+    id(BuildPlugins.kotlinKapt)
+    id(BuildPlugins.hiltAndroid)
 }
 
 android {
@@ -9,22 +11,24 @@ android {
 
     defaultConfig {
         minSdk = ConfigData.minSdk
-        consumerProguardFiles("consumer-rules.pro")
+        consumerProguardFiles(ConfigData.proguardRules)
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(ConfigData.proguardAndroid),
+                ConfigData.proguardRules
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = ConfigData.sourceCompatibility
         targetCompatibility = ConfigData.targetCompatibility
     }
+
     kotlinOptions {
         jvmTarget = ConfigData.jvmTarget
     }
@@ -32,5 +36,8 @@ android {
 
 dependencies {
     implementation(projects.domain)
+
     implementation(Deps.coreKtx)
+    hilt()
+    room()
 }

@@ -1,6 +1,8 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(BuildPlugins.androidApplication)
+    id(BuildPlugins.kotlinAndroid)
+    id(BuildPlugins.kotlinKapt)
+    id(BuildPlugins.hiltAndroid)
 }
 
 android {
@@ -19,15 +21,17 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(ConfigData.proguardAndroid),
+                ConfigData.proguardRules
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = ConfigData.sourceCompatibility
         targetCompatibility = ConfigData.targetCompatibility
     }
+
     kotlinOptions {
         jvmTarget = ConfigData.jvmTarget
     }
@@ -44,4 +48,8 @@ dependencies {
     implementation(Deps.appcompat)
     implementation(Deps.material)
     implementation(Deps.constraintLayout)
+    implementation(Deps.fragment)
+
+    hilt()
+    lifecycle()
 }
