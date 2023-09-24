@@ -1,20 +1,15 @@
 plugins {
-    id(BuildPlugins.androidApplication)
+    id(BuildPlugins.androidLibrary)
     id(BuildPlugins.kotlinAndroid)
-    id(BuildPlugins.kotlinKapt)
-    id(BuildPlugins.hiltAndroid)
 }
 
 android {
-    namespace = "com.allaber.test"
+    namespace = "com.allaber.intro"
     compileSdk = ConfigData.compileSdk
 
     defaultConfig {
-        applicationId = "com.allaber.test"
         minSdk = ConfigData.minSdk
-        targetSdk = ConfigData.targetSdk
-        versionCode = ConfigData.versionCode
-        versionName = ConfigData.versionName
+        consumerProguardFiles(ConfigData.proguardRules)
     }
 
     buildTypes {
@@ -38,22 +33,9 @@ android {
 }
 
 dependencies {
-    implementation(projects.domain)
-    implementation(projects.data)
-    implementation(projects.ui.assets)
-    implementation(projects.ui.localization)
-    implementation(projects.ui.system)
-    implementation(projects.feature.home)
-    implementation(projects.feature.intro)
-    implementation(projects.feature.test)
-    implementation(projects.feature.result)
-
     implementation(Deps.coreKtx)
     implementation(Deps.appcompat)
     implementation(Deps.material)
     implementation(Deps.constraintLayout)
     implementation(Deps.fragment)
-
-    hilt()
-    lifecycle()
 }
