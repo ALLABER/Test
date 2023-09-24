@@ -38,4 +38,6 @@ dependencies {
     implementation(Deps.material)
     implementation(Deps.constraintLayout)
     implementation(Deps.fragment)
+
+    navigation()
 }

@@ -20,11 +20,11 @@ object Deps {
     val fragment by lazy { "androidx.fragment:fragment-ktx:${Versions.fragment}" }
     val lifecycleViewModel by lazy { "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}" }
     val lifecycleLivedata by lazy { "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}" }
-
     val room by lazy { "androidx.room:room-runtime:${Versions.room}" }
     val roomCompiler by lazy { "androidx.room:room-compiler:${Versions.room}" }
     val roomKtx by lazy { "androidx.room:room-ktx:${Versions.room}" }
-    val gson by lazy { "com.google.code.gson:gson:${Versions.gson}" }
+    val navigationFragment by lazy { "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}" }
+    val navigationUi by lazy { "androidx.navigation:navigation-ui-ktx:${Versions.navigation}" }
 }
 
 fun DependencyHandler.implementation(dependencyList: List<String>) {
@@ -73,5 +73,9 @@ fun DependencyHandler.room() {
     implementation(Deps.room)
     kapt(Deps.roomCompiler)
     implementation(Deps.roomKtx)
-    implementation(Deps.gson)
+}
+
+fun DependencyHandler.navigation() {
+    implementation(Deps.navigationFragment)
+    implementation(Deps.navigationUi)
 }

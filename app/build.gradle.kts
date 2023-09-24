@@ -54,6 +54,7 @@ dependencies {
     implementation(Deps.constraintLayout)
     implementation(Deps.fragment)
 
+    navigation()
     hilt()
     lifecycle()
 }
