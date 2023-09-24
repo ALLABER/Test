@@ -25,8 +25,8 @@ internal object QuestionModule {
     ) = Room.databaseBuilder(
         app,
         AppDatabase::class.java,
-        "database"
-    ).build()
+        "database.db"
+    ).createFromAsset("database.db").build()
 
     @Provides
     @Singleton

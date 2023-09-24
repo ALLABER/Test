@@ -24,6 +24,7 @@ object Deps {
     val room by lazy { "androidx.room:room-runtime:${Versions.room}" }
     val roomCompiler by lazy { "androidx.room:room-compiler:${Versions.room}" }
     val roomKtx by lazy { "androidx.room:room-ktx:${Versions.room}" }
+    val gson by lazy { "com.google.code.gson:gson:${Versions.gson}" }
 }
 
 fun DependencyHandler.implementation(dependencyList: List<String>) {
@@ -72,4 +73,5 @@ fun DependencyHandler.room() {
     implementation(Deps.room)
     kapt(Deps.roomCompiler)
     implementation(Deps.roomKtx)
+    implementation(Deps.gson)
 }

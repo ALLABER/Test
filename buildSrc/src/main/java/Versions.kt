@@ -8,4 +8,5 @@ object Versions {
     const val fragment = "1.6.1"
     const val lifecycle = "2.6.2"
     const val room = "2.5.2"
+    const val gson = "2.10.1"
 }

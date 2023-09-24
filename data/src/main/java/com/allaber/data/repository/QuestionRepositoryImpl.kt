@@ -11,7 +11,14 @@ class QuestionRepositoryImpl @Inject constructor(
     private val questionMapper: QuestionMapper
 ) : QuestionRepository {
     override suspend fun getQuestionById(questionId: Int): Result<Question> {
-        return Result.success(Question(1))
+        return runCatching {
+            val questionListEntity = questionDao.getQuestionById(questionId)
+            questionMapper.transform(questionListEntity)
+        }.onSuccess {
+            Result.success(it)
+        }.onFailure {
+            Result.failure<List<Question>>(it)
+        }
     }
 
     override suspend fun getAllQuestion(): Result<List<Question>> {
