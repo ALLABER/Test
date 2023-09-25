@@ -25,6 +25,7 @@ object Deps {
     val roomKtx by lazy { "androidx.room:room-ktx:${Versions.room}" }
     val navigationFragment by lazy { "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}" }
     val navigationUi by lazy { "androidx.navigation:navigation-ui-ktx:${Versions.navigation}" }
+    val bindingDelegate by lazy { "com.github.kirich1409:viewbindingpropertydelegate-noreflection:${Versions.bindingDelegate}" }
 }
 
 fun DependencyHandler.implementation(dependencyList: List<String>) {
@@ -73,9 +74,4 @@ fun DependencyHandler.room() {
     implementation(Deps.room)
     kapt(Deps.roomCompiler)
     implementation(Deps.roomKtx)
-}
-
-fun DependencyHandler.navigation() {
-    implementation(Deps.navigationFragment)
-    implementation(Deps.navigationUi)
 }

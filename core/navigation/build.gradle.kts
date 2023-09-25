@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.allaber.intro"
+    namespace = "com.allaber.navigation"
     compileSdk = ConfigData.compileSdk
 
     defaultConfig {
@@ -30,20 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = ConfigData.jvmTarget
     }
-
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
-    implementation(projects.core.navigation)
-
-    implementation(Deps.coreKtx)
-    implementation(Deps.appcompat)
-    implementation(Deps.material)
-    implementation(Deps.constraintLayout)
-    implementation(Deps.fragment)
-
-    implementation(Deps.bindingDelegate)
+    api(Deps.navigationFragment)
+    api(Deps.navigationUi)
+    api(Deps.fragment)
 }

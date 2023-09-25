@@ -1,10 +1,12 @@
 plugins {
     id(BuildPlugins.androidLibrary)
     id(BuildPlugins.kotlinAndroid)
+    id(BuildPlugins.kotlinKapt)
+    id(BuildPlugins.hiltAndroid)
 }
 
 android {
-    namespace = "com.allaber.intro"
+    namespace = "com.allaber.data"
     compileSdk = ConfigData.compileSdk
 
     defaultConfig {
@@ -30,20 +32,12 @@ android {
     kotlinOptions {
         jvmTarget = ConfigData.jvmTarget
     }
-
-    buildFeatures {
-        viewBinding = true
-    }
 }
 
 dependencies {
-    implementation(projects.core.navigation)
+    implementation(projects.core.domain)
 
     implementation(Deps.coreKtx)
-    implementation(Deps.appcompat)
-    implementation(Deps.material)
-    implementation(Deps.constraintLayout)
-    implementation(Deps.fragment)
-
-    implementation(Deps.bindingDelegate)
+    hilt()
+    room()
 }

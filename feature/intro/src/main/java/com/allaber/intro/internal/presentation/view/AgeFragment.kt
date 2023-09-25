@@ -1,18 +1,18 @@
-package com.allaber.home.internal.presentation.view
+package com.allaber.intro.internal.presentation.view
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.allaber.home.R
-import com.allaber.home.databinding.FragmentHomeBinding
+import com.allaber.intro.R
+import com.allaber.intro.databinding.FragmentAgeBinding
 import com.allaber.navigation.launchDeeplink
-import com.allaber.navigation.link.IntroDeepLink
+import com.allaber.navigation.link.HomeDeepLink
 
-internal class HomeFragment : Fragment(R.layout.fragment_home) {
+internal class AgeFragment : Fragment(R.layout.fragment_age) {
 
-    private val binding: FragmentHomeBinding by viewBinding(
-        FragmentHomeBinding::bind
+    private val binding: FragmentAgeBinding by viewBinding(
+        FragmentAgeBinding::bind
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -22,7 +22,7 @@ internal class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setupViewsListener() {
         binding.textView.setOnClickListener {
-            launchDeeplink(IntroDeepLink())
+            launchDeeplink(HomeDeepLink())
         }
     }
 }

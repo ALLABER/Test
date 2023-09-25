@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/intro_graph"
+    app:startDestination="@id/introFragment">
+
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.allaber.intro.internal.presentation.view.IntroFragment"
+        android:label="IntroFragment">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="app://allaber_test_intro" />
+        <action
+            android:id="@+id/action_introFragment_to_ageFragment"
+            app:destination="@id/ageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ageFragment"
+        android:name="com.allaber.intro.internal.presentation.view.AgeFragment"
+        android:label="AgeFragment">
+
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="app://allaber_test_age" />
+    </fragment>
+</navigation>

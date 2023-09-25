@@ -7,5 +7,10 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.allaber.home.internal.presentation.view.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment">
+
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="app://allaber_test_home" />
+    </fragment>
 </navigation>

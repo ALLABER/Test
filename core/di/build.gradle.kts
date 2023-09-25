@@ -1,13 +1,11 @@
 plugins {
     id(BuildPlugins.androidLibrary)
     id(BuildPlugins.kotlinAndroid)
-    id(BuildPlugins.kotlinKapt)
-    id(BuildPlugins.hiltAndroid)
 }
 
 android {
-    namespace = "com.allaber.data"
-    compileSdk = ConfigData.compileSdk
+    namespace = "com.allaber.di"
+    compileSdk = 33
 
     defaultConfig {
         minSdk = ConfigData.minSdk
@@ -35,9 +33,5 @@ android {
 }
 
 dependencies {
-    implementation(projects.domain)
-
     implementation(Deps.coreKtx)
-    hilt()
-    room()
 }

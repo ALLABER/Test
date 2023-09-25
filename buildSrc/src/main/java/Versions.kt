@@ -9,4 +9,5 @@ object Versions {
     const val lifecycle = "2.6.2"
     const val room = "2.5.2"
     const val navigation = "2.6.0"
+    const val bindingDelegate = "1.5.3"
 }

@@ -30,14 +30,19 @@ android {
     kotlinOptions {
         jvmTarget = ConfigData.jvmTarget
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+    implementation(projects.core.navigation)
+
     implementation(Deps.coreKtx)
     implementation(Deps.appcompat)
     implementation(Deps.material)
     implementation(Deps.constraintLayout)
     implementation(Deps.fragment)
-
-    navigation()
+    implementation(Deps.bindingDelegate)
 }

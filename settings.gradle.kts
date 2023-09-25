@@ -15,8 +15,10 @@ dependencyResolutionManagement {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "test"
 include(":app")
-include(":domain")
-include(":data")
+include(":core:domain")
+include(":core:data")
+include(":core:navigation")
+include(":core:di")
 include(":ui:assets")
 include(":ui:localization")
 include(":ui:system")

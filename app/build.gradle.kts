@@ -38,8 +38,9 @@ android {
 }
 
 dependencies {
-    implementation(projects.domain)
-    implementation(projects.data)
+    implementation(projects.core.domain)
+    implementation(projects.core.data)
+    implementation(projects.core.navigation)
     implementation(projects.ui.assets)
     implementation(projects.ui.localization)
     implementation(projects.ui.system)
@@ -54,7 +55,6 @@ dependencies {
     implementation(Deps.constraintLayout)
     implementation(Deps.fragment)
 
-    navigation()
     hilt()
     lifecycle()
 }
